@@ -1,0 +1,3 @@
+#content > div > table > tbody > tr:hover {
+    background-color: aqua;
+}
