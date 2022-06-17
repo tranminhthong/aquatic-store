@@ -8,9 +8,9 @@ const livereload = require('livereload');
 const connectLiveReload = require('connect-livereload');
 const liveReloadServer = livereload.createServer();
 liveReloadServer.server.once('connection', () => {
-  setTimeout(() => {
-    liveReloadServer.refresh('/');
-  }, 100);
+    setTimeout(() => {
+        liveReloadServer.refresh('/');
+    }, 100);
 });
 
 const app = express();
@@ -26,6 +26,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 route(app);
 
-app.listen(process.env.PORT, () => {
-  console.log('App is running on http://localhost:' + process.env.PORT);
+const PORT = process.env.PORT
+
+app.listen(PORT, () => {
+    console.log(`App is running on http://localhost:${PORT}`);
 });
